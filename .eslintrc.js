@@ -1,3 +1,3 @@
 module.exports = {
-  extends: ["jungai-ts-react"],
+	extends: ["jungai-ts-react"],
 };
