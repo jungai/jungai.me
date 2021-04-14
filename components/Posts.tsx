@@ -1,12 +1,11 @@
 import { FC } from "react";
+import { IKeyDataFromMatter } from "../utils/api";
 import Post from "./Post";
 
-const arr = [1, 2];
-
-const Posts: FC = () => (
+const Posts: FC<{ posts: IKeyDataFromMatter[] }> = ({ posts }) => (
 	<>
-		{arr.map((a) => (
-			<Post key={a} />
+		{posts.map((post) => (
+			<Post key={post.title} {...post} />
 		))}
 	</>
 );

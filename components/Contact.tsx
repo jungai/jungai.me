@@ -3,7 +3,7 @@ import { IContacts } from "./Contacts";
 
 const Contact: FC<IContacts> = ({ link, href, icon, msg }) => (
 	<li
-		className={`mr-2 border p-2 rounded-lg hover:border-2 hover:border-red-300 ${
+		className={`mr-2 border p-2 rounded-lg hover:border-2 hover:border-light-head  hover:text-light-head ${
 			link ? "cursor-pointer" : ""
 		}`}
 	>

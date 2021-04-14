@@ -1,0 +1,61 @@
+---
+name: 'first'
+title: 'mock function ของ jest'
+description: 'ว่าด้วยเรื่องการ mock function ของ jest'
+date: '2021-02-13T06:37:13.807Z'
+---
+
+# Mock function ของ jest
+
+---
+
+จุดเริ่มต้นของการเขียนบล็อกนี้คือดูซีรี่ย์เกาหลีแล้วอยากที่จะเขียนระบายความรู้สึกกับเรื่องนั้นๆ แต่ไม่อยากโพสลงใน facebook หรือ social อื่นๆ และ ด้วยความที่เป็น dev อยู่แล้วก็เลยคิดว่าทำบล็อกขึ้นมาอันนึงทีเป็นส่วนตัวที่เอาไว้ระบายเรื่องซีรี่ย์เกาหลีรวม ถึงเรื่องที่เจอมาต่างๆลงในบล็อกส่วนตัวก็คงดี ....
+
+## อยากลองทำ
+
+โดยปกติแล้วเป็นคนที่ไม่ค่อยลงมือทำถ้าอะไรเหล่านัั้นไม่ได้สำคัญจริงๆ หรือก็คือ ขี้เกียจนั้นเอง ...
+
+## เทคโนโลยีที่ใช้
+
+อย่างแรกที่มองถึงการทำบล็อกตัวนี้คือ ต้องเป็น __static site__ เพราะไม่ได้มีการอัพเดทคอนเท้นบ่อยๆ และก็ deploy ได้ง่าย
+
+ส่วน framework ที่เลือกใช้ก็คือตัว [Nuxtjs](https://duckduckgo.com) เพราะว่าปกติเขียน [Vuejs](https://vuejs.org/) เพื่อให้สร้างบล็อกขึ้นมาได้เร็วๆ แล้วและพอดีตัว nuxt อัพเดทรองรับ SSG(static site generator)
+เต็มรูปแบบ โดยที่ตอนแรกอยากที่ลองเขียนด้วย [Nextjs](https://nextjs.org/) เนื่องจากไม่เคยเขียน react จริงๆจังๆสักที(ไว้คราวหน้าละกัน T_T)
+
+## สุดท้าย
+
+บล็อกอันนี้จะพยายามเขียนเรื่องราวต่างๆ ไม่ว่าจะเป็น ซีรีย์เกาหลี ของกิน สถานที่ต่างๆ เก็บไว้เป็นความทรงจำเล็กๆ เผื่อจะลืมในสักวันหนึ่ง ...
+
+```js
+const axios = require('axios');
+
+jest.mock('axios');
+
+it('should get https request', async () => {
+  // mock axios
+  axios.get = jest.fn().mockResolvedValue({ status: 200 });
+
+  // call normal axios
+  const res = await axios.get('path');
+
+  // test output
+  expect(res.status).toBe(200):
+})
+```
+
+```js
+const axios = require('axios');
+
+jest.mock('axios');
+
+it('should get https request', async () => {
+  // mock axios
+  axios.get = jest.fn().mockResolvedValue({ status: 200 });
+
+  // call normal axios
+  const res = await axios.get('path');
+
+  // test output
+  expect(res.status).toBe(200):
+})
+```

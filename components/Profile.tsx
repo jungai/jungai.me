@@ -3,16 +3,16 @@ import Image from "next/image";
 import Contacts from "./Contacts";
 
 const Profile: FC = () => (
-	<div className="md:sticky top-0 md:h-screen flex flex-col justify-center items-center py-6 relative">
+	<div className="flex flex-col justify-center items-center py-8 md:py-0">
 		<Image
 			src="/jungai.jpeg"
 			alt="jungai"
 			className="rounded-full"
-			width={300}
-			height={300}
+			width={250}
+			height={250}
 		/>
-		<h1 className="text-2xl">안녕하세요 👋</h1>
-		<p className="mb-4">สวัสดีครับผมชื่อจูเนียนร์</p>
+		<h1 className="text-2xl text-gray-900">안녕하세요 👋</h1>
+		<p className="mb-4 text-gray-700">สวัสดีครับผมชื่อจูเนียร์</p>
 		<Contacts />
 
 		{/* TODO: i18n ? */}
