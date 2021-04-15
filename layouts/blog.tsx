@@ -1,7 +1,7 @@
 import { FC } from "react";
 import Link from "next/link";
 
-const LayoutBlogs: FC = ({ children }) => (
+const LayoutBlog: FC = ({ children }) => (
 	<div className="p-8 mx-auto max-w-3xl">
 		<Link href="/">
 			<a className="underline text-light-head cursor-pointer">หน้าหลัก</a>
@@ -11,4 +11,4 @@ const LayoutBlogs: FC = ({ children }) => (
 	</div>
 );
 
-export default LayoutBlogs;
+export default LayoutBlog;

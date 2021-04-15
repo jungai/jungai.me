@@ -8,7 +8,7 @@ import {
 	RenderMdxWithRemoteResult,
 } from "../../utils/api";
 import { isString } from "../../utils/is_string";
-import LayoutBlogs from "../../layouts/blogs";
+import LayoutBlog from "../../layouts/blog";
 
 interface InitialProps {
 	post: RenderMdxWithRemoteResult;
@@ -17,7 +17,7 @@ interface InitialProps {
 export const PostPage: React.FC<InitialProps> = ({ post }) => {
 	const content = hydrate(post.mdx);
 
-	return <LayoutBlogs>{content}</LayoutBlogs>;
+	return <LayoutBlog>{content}</LayoutBlog>;
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
