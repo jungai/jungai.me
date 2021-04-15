@@ -17,7 +17,7 @@ interface InitialProps {
 export const PostPage: React.FC<InitialProps> = ({ post }) => {
 	const content = hydrate(post.mdx);
 
-	return <LayoutBlog>{content}</LayoutBlog>;
+	return <LayoutBlog meta={post.data}>{content}</LayoutBlog>;
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {

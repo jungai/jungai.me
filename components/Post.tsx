@@ -17,7 +17,7 @@ const Post: FC<IPost> = ({ title, date, name }) => {
 
 	return (
 		<div className="flex flex-col border-b border-gray-300 mb-2 p-2">
-			<h2 className="text-base md:text-xl font-semibold">{title}</h2>
+			<h2 className="text-base md:text-xl font-semibold mb-4">{title}</h2>
 			<div className="flex justify-between items-center">
 				<p className="flex items-center text-sm">
 					<MdUpdate />
