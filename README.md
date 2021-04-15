@@ -1,4 +1,4 @@
-# Jungai.me
+[jungai](jungai.me)
 
 ## Tools
 
