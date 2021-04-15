@@ -43,6 +43,7 @@ export function isFrontMatterCorrectKey<T extends UseMatterResult>(
 	);
 }
 
+// TODO: Fix Type
 export function getAllPost(): { [key: string]: string }[] {
 	const posts = getPostsSlug();
 	const postsWithPath = posts.map((post) => join(getPostsDirPath(), `${post}`));
