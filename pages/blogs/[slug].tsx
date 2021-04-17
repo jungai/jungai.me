@@ -1,5 +1,4 @@
-/* eslint-disable no-use-before-define */
-import React from "react";
+import { FC } from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
 import hydrate from "next-mdx-remote/hydrate";
 import {
@@ -9,15 +8,29 @@ import {
 } from "../../utils/api";
 import { isString } from "../../utils/is_string";
 import LayoutBlog from "../../layouts/blog";
+import Seo from "../../components/Seo";
 
 interface InitialProps {
 	post: RenderMdxWithRemoteResult;
 }
 
-export const PostPage: React.FC<InitialProps> = ({ post }) => {
+export const PostPage: FC<InitialProps> = ({ post }) => {
 	const content = hydrate(post.mdx);
 
-	return <LayoutBlog meta={post.data}>{content}</LayoutBlog>;
+	return (
+		<>
+			<Seo
+				title={post.data.title}
+				openGraph={{
+					url: `https://wwww.jungai.me/blogs/${post.data.name}`,
+					title: post.data.title,
+					// TODO: add description, twitter card, image not have yet
+					site_name: "jungai",
+				}}
+			/>
+			<LayoutBlog meta={post.data}>{content}</LayoutBlog>
+		</>
+	);
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
