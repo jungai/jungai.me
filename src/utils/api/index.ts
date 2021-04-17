@@ -4,6 +4,7 @@ import fs from "fs";
 import matter from "gray-matter";
 import renderToString from "next-mdx-remote/render-to-string";
 import { MdxRemote } from "next-mdx-remote/types";
+import rehypePrism from "@mapbox/rehype-prism";
 
 export function getPostsDirPath(): string {
 	return join(process.cwd(), "_posts");
@@ -63,10 +64,17 @@ export async function getPostBySlug(
 	getAllPost();
 
 	const result = matter(fileContent);
-	const source = await renderToString(result.content);
+
+	const source = await renderToString(result.content, {
+		mdxOptions: { rehypePlugins: [rehypePrism] },
+	});
 
 	if (isFrontMatterCorrectKey(result)) {
-		return { mdx: source, data: result.data, content: result.content };
+		return {
+			mdx: source,
+			data: result.data,
+			content: result.content,
+		};
 	}
 
 	throw new Error("type error: front-matter key is not valid");

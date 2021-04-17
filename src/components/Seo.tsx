@@ -26,6 +26,10 @@ const Seo: FC<NextSeoProps> = ({
 				type: "image/png",
 				href: "/j.png",
 			},
+			{
+				rel: "stylesheet",
+				href: "https://unpkg.com/prismjs@0.0.1/themes/prism-okaidia.css",
+			},
 		]}
 		openGraph={openGraph}
 	/>
