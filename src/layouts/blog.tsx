@@ -25,7 +25,6 @@ const LayoutBlog: FC<{ meta: { [key: string]: string } }> = ({
 				{prettyDate}
 			</p>
 			<h1>{meta.title}</h1>
-			<hr className="mb-4" />
 			<article>{children}</article>
 		</div>
 	);
