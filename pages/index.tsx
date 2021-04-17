@@ -24,7 +24,10 @@ export async function getStaticProps(): Promise<{
 		posts: { [key: string]: string }[];
 	};
 }> {
-	const posts = getAllPost();
+	const rawPosts = getAllPost();
+	const posts = rawPosts.sort(
+		(i, u) => new Date(u.date).getTime() - new Date(i.date).getTime() // i with u mean iu ❤️
+	);
 
 	return {
 		props: {
