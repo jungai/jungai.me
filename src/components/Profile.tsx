@@ -1,16 +1,8 @@
 import { FC } from "react";
-import Image from "next/image";
-import Contacts from "./Contacts";
+import Contacts from "@/components/Contacts";
 
 const Profile: FC = () => (
 	<div className="flex flex-col justify-center items-center py-8 md:py-0">
-		{/* <Image
-			src="/jungai.jpeg"
-			alt="jungai"
-			className="rounded-full"
-			width={250}
-			height={250}
-		/> */}
 		<img
 			src="/jungai.jpeg"
 			alt="jungai"

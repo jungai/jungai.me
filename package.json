@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build && next export",
     "start": "next start",
-    "lint": "eslint ."
+		"lint": "eslint src/**/*.tsx src/**/*.ts"
   },
   "dependencies": {
     "@mdx-js/loader": "^1.6.22",

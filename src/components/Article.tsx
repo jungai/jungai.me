@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { IKeyDataFromMatter } from "../utils/api";
-import Posts from "./Posts";
+import { IKeyDataFromMatter } from "@/utils/api";
+import Posts from "@/components/Posts";
 
 const Article: FC<{ posts: IKeyDataFromMatter[] }> = ({ posts }) => (
 	<div className="p-4 md:p-0">

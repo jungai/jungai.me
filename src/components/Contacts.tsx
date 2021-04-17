@@ -1,7 +1,7 @@
 import { FC, ReactNode } from "react";
 import { FaGithubAlt } from "react-icons/fa";
 import { AiTwotoneMail } from "react-icons/ai";
-import Contact from "./Contact";
+import Contact from "@/components/Contact";
 
 export interface IContacts {
 	msg: string;

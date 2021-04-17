@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { IContacts } from "./Contacts";
+import { IContacts } from "@/components/Contacts";
 
 const Contact: FC<IContacts> = ({ link, href, icon, msg }) => (
 	<li

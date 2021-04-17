@@ -1,14 +1,14 @@
 import { FC } from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
 import hydrate from "next-mdx-remote/hydrate";
+import LayoutBlog from "@/layouts/blog";
+import Seo from "@/components/Seo";
+import { isString } from "@/utils/is_string";
 import {
 	getPostBySlug,
 	getPostsSlug,
 	RenderMdxWithRemoteResult,
-} from "../../utils/api";
-import { isString } from "../../utils/is_string";
-import LayoutBlog from "../../layouts/blog";
-import Seo from "../../components/Seo";
+} from "@/utils/api";
 
 interface InitialProps {
 	post: RenderMdxWithRemoteResult;

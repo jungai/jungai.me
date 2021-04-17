@@ -3,7 +3,7 @@ import Link from "next/link";
 import { format } from "date-fns";
 import { th } from "date-fns/locale";
 import { MdUpdate } from "react-icons/md";
-import { IKeyDataFromMatter } from "../utils/api";
+import { IKeyDataFromMatter } from "@/utils/api";
 
 interface IPost {
 	name: IKeyDataFromMatter["name"];

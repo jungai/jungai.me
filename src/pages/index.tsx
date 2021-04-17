@@ -1,9 +1,9 @@
 import { FC } from "react";
-import Profile from "../components/Profile";
-import Article from "../components/Article";
-import { getAllPost, IKeyDataFromMatter } from "../utils/api";
-import Seo from "../components/Seo";
-import LayoutDefault from "../layouts/default";
+import Profile from "@/components/Profile";
+import Article from "@/components/Article";
+import Seo from "@/components/Seo";
+import LayoutDefault from "@/layouts/default";
+import { getAllPost, IKeyDataFromMatter } from "@/utils/api";
 
 interface IInitialProps {
 	posts: IKeyDataFromMatter[];
