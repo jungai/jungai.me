@@ -1,13 +1,20 @@
 import { FC } from "react";
-import Profile from "@/components/Profile";
-import Article from "@/components/Article";
 import Seo from "@/components/Seo";
 import LayoutDefault from "@/layouts/default";
 import { getAllPost, IKeyDataFromMatter } from "@/utils/api";
+import dynamic from "next/dynamic";
 
 interface IInitialProps {
 	posts: IKeyDataFromMatter[];
 }
+
+const Profile = dynamic(() => import("@/components/Profile"), {
+	loading: () => <p>loading...</p>,
+});
+
+const Article = dynamic(() => import("@/components/Article"), {
+	loading: () => <p>loading...</p>,
+});
 
 const IndexPage: FC<IInitialProps> = ({ posts }) => (
 	<>

@@ -1,8 +1,8 @@
 import { FC } from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
 import hydrate from "next-mdx-remote/hydrate";
-import LayoutBlog from "@/layouts/blog";
 import Seo from "@/components/Seo";
+import dynamic from "next/dynamic";
 import { isString } from "@/utils/is_string";
 import {
 	getPostBySlug,
@@ -13,6 +13,10 @@ import {
 interface InitialProps {
 	post: RenderMdxWithRemoteResult;
 }
+
+const LayoutBlog = dynamic(() => import("@/layouts/blog"), {
+	loading: () => <p>loading...</p>,
+});
 
 export const PostPage: FC<InitialProps> = ({ post }) => {
 	const content = hydrate(post.mdx);
