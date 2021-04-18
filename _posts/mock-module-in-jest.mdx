@@ -1,0 +1,161 @@
+---
+name: 'mock-module-in-jest'
+title: 'mock module ด้วย jest'
+date: '2021-04-18T09:49:22.366Z'
+---
+
+## ทดสอบ syntax highlighting
+
+Jest Testing Framework มีอะไรให้ใช้เยอะมากๆในการ test วันนี้จะมาพูดถึงการ Mocking Modules
+
+สมมติว่าใน project ผมมี sturcture แบบนี้
+
+```
+project
+│   index.js
+|   index.spec.ts
+└───utils
+│   └───get_data
+│   |   │   index.js
+│   └───get_id
+│       │   index.js
+```
+
+```js
+// utils/data/index.js
+const axios = require('axios')
+
+function getData() {
+	return axios.get('https://jsonplaceholder.typicode.com/todos/1')
+		.then(res => res.data)
+		.catch(error => console.log(error))
+}
+
+module.exports = getData
+```
+
+```js
+// utils/id/index.js
+const { v4 } = require('uuid')
+
+function getId() {
+	return v4();
+}
+
+module.exports = getId
+```
+
+```js
+// index.js
+const getId = require('./utils/id')
+const getData = require('./utils/data')
+
+console.log('id => ', getId())
+// output id =>  15706a2b-4cd2-43b5-b509-9c28a1c12177
+
+getData().then(res => {
+	console.log('data => ', res)
+})
+// output data =>  { userId: 1, id: 1, title: 'delectus aut autem', completed: false }
+```
+
+### คำอธิบาย
+
+- utils จะมี function ในการสร้าง id และ การ ดึงข้อมูล โดยใช้ 3rd อย่าง axios และ uuid
+- index.js จะมีการเรียกใช้งาน utils เหล่านั้นและได้ output ออกมา
+
+ในการเขียน test นั้นสมมติเราต้องการใช้ utils ในการสร้าง id ขึ้นมาโดยจะนำไปใช้อะไรก็ตามแต่เช่น สร้าง unique id ในการ insert ลง db
+เวลาเรา test เราจะ call function getId เพื่อให้มันสร้าง uuid ออกมาแต่เนื้องจากเราเดาไม่ได้เลยว่า uuid ที่สร้างออกมามีค่าเป็นอะไร ถ้าต้องการทดสอบเช่นผมต้องการสร้าง object ของ user
+
+```js
+const user = {
+	id: getId(),
+	name: 'iu'
+}
+```
+
+สิ่งที่ผมรู้แน่นอนจากโค้ดข้างบนคือ object user จะมี property name ที่มีค่าคือ 'iu' แต่ id ไม่สามารถเดาได้เลยว่ามันมีค่าเป็นอะไร เพื่อความถูกต้องของข้อมูลผมอยากรู้ว่าเมื่อสร้าง object user จะต้องมี property name เป็น 'iu' และ id เป็น 1 แล้วเขียน test จะออกมาในรูปแบบนี้
+
+```js
+// index.spec.ts
+const getId = require('./utils/id')
+
+it('should return id = 1', () => {
+	const user = {
+		id: getId(),
+		name: 'iu'
+	}
+
+	expect(user).toEqual({ id: 1, name: 'iu'})
+})
+```
+
+เมื่อรอง run test ดูแล้ว test จะ fail เนื่องจาก id ที่มันสร้างกับสิ่งที่เราต้องการมันไม่เท่ากัน
+
+## Mock Modules
+
+เป็น feature หนึ่งของ jest ที่ผมค่อนข้างชอบเลยที่เดียว เราสามารถ mock ทั้ง modules ได้ทั้งหมดจากข้างบนเราต้องการที่จะ mock module utils/id เพื่อให้มันได้ผลรับตามที่เราต้องการจากโค้ดข้างบนจะได้แบบนี้
+
+```js
+// index.spec.ts
+const getId = require('./utils/id')
+
+jest.mock('./utils/id') // บอก jest ว่าเราจะ mock module utils/id
+
+it('should return id = 1', () => {
+	getId.mockReturnValue(1) // mock function ของ jest ให้มัน return 1
+	
+	const user = {
+		id: getId(),
+		name: 'iu'
+	}
+
+	expect(user).toEqual({ id: 1, name: 'iu'})
+	expect(getId.mock.calls.length).toBe(1) // test ว่า fn getId ถูก call 1 ครั้ง
+})
+```
+ทีนี้เมื่อ run โค้ดข้างบนก็จะถูกต้องตามที่เราต้องการ แต่จริงๆสำหรับผมมันดูเหมือนว่าเราบังคับตัว function getId ให้มัน return อะไรก็ได้ตามที่เราต้องการซึ่งรับประกันไม่ได้ว่ามันเป็นไปตาม flow จริงๆหรือเปล่า
+
+การที่เรา mock ทั้ง function getId ก็อาจจะไม่ถูกต้องซะทีเดียว ถ้าเรามาดูโค้ดของ function getId จะเห็นว่ามันใช้ 3rd lib อย่าง uuid ในการสร้าง id ออกมา ทั้งนี้ jest สามารถ mock module ตัว uuid ได้(จริงๆแล้วมันก็คือ module เหมือนกันเช่น module axios, module uuid, module utils อยู่ที่ว่าเราจะมองแบบไหน)
+ลองมา mock uuid
+
+```js
+// index.spec.ts
+const { v4 } = require('uuid')
+const getId = require('./utils/id')
+
+jest.mock('uuid') // บอก jest ว่าเราจะ mock module utils/id
+
+it('should return id = 1', () => {
+	v4.mockReturnValue(1) // mock function ของ jest ให้มัน return 1
+	
+	const user = {
+		id: getId(),
+		name: 'iu'
+	}
+
+	expect(user).toEqual({ id: 1, name: 'iu'})
+	expect(v4.mock.calls.length).toBe(1) // test ว่า fn getId ถูก call 1 ครั้ง
+})
+```
+
+เมื่อ run test ด้านบนก็จะได้ผลลัพธ์เหมือนกับโค้ดก่อนหน้าแต่ที่ต่างเลยก็คือ function getId จะทำงานตามหน้าทีของมันจริงๆ โดยเราจะไป mock function ที่มันเรียกใช้ก็คือตัว v4 จาก module uuid
+
+## ที่มา
+
+บทความนี้มีที่มาจากในกลุ่มอะไรผมจำไม่ได้ มีคนมาถามว่าเราสามารถ test ตัว axios ให้ได้ผลลัพธ์ตามที่เขาต้องการได้อย่างไร ซึ่งเข้าใช้ jest อยู่แล้วผมก็เลยลองใช้วิธีนี้ให้เขาดูสรุปแล้วก็ตรงตามที่เขาต้องการโดยที่ไม่ได้ install 3rd lib
+
+```js
+const axios = require('axios');
+
+jest.mock('axios');
+
+it('should get https request', async () => {
+  // mock axios
+  axios.get = jest.fn().mockResolvedValue({ status: 200 });
+  // call normal axios
+  const res = await axios.get('path');
+  // test output
+  expect(res.status).toBe(200):
+})
+```
