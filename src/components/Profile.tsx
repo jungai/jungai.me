@@ -10,6 +10,15 @@ const Profile: FC = () => (
 		/>
 		<h1 className="text-2xl text-gray-900">안녕하세요 👋</h1>
 		<p className="mb-4 text-gray-700">สวัสดีครับผมชื่อจูเนียร์</p>
+		<a href="https://webring.wonderful.software#jungai.me" title="วงแหวนเว็บ">
+			<img
+				className="mb-4 animate-spin"
+				alt="วงแหวนเว็บ"
+				width="32"
+				height="32"
+				src="https://webring.wonderful.software/webring.svg"
+			/>
+		</a>
 		<Contacts />
 
 		{/* TODO: i18n ? */}

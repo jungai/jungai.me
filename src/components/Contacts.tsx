@@ -1,6 +1,6 @@
 import { FC, ReactNode } from "react";
 import { FaGithubAlt } from "react-icons/fa";
-import { AiTwotoneMail } from "react-icons/ai";
+// import { AiTwotoneMail } from "react-icons/ai";
 import Contact from "@/components/Contact";
 
 export interface IContacts {
@@ -17,11 +17,11 @@ const contacts: IContacts[] = [
 		icon: <FaGithubAlt />,
 		href: "https://github.com/jungai",
 	},
-	{
-		msg: "juworaphol125@gmail.com",
-		link: false,
-		icon: <AiTwotoneMail />,
-	},
+	// {
+	// 	msg: "juworaphol125@gmail.com",
+	// 	link: false,
+	// 	icon: <AiTwotoneMail />,
+	// },
 ];
 
 const Contacts: FC = () => (
