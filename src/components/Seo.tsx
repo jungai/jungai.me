@@ -2,10 +2,10 @@ import { FC } from "react";
 import { NextSeo, NextSeoProps } from "next-seo";
 
 const Seo: FC<NextSeoProps> = ({
-	title = "Jungai Blog 🐖",
+	title = "Jungai",
 	openGraph = {
 		url: "https://www.jungai.me",
-		title: "Jungai Blog 🐖",
+		title: "Jungai",
 		description: "บล็อกของ จูเนียร์(junior)",
 		site_name: "jungai",
 	},
