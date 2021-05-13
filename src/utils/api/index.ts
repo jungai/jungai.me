@@ -61,7 +61,6 @@ export async function getPostBySlug(
 ): Promise<RenderMdxWithRemoteResult> {
 	const fullPath = join(getPostsDirPath(), `${slug}.mdx`);
 	const fileContent = getContent(fullPath);
-	getAllPost();
 
 	const result = matter(fileContent);
 
