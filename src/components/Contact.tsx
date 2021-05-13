@@ -15,7 +15,6 @@ const Contact: FC<IContacts> = ({ link, href, icon, msg }) => (
 				rel="noreferrer"
 			>
 				<span>{icon}</span>
-				{msg}
 			</a>
 		) : (
 			<p className="grid place-items-center">
