@@ -1,5 +1,5 @@
 import { FC, ReactNode } from "react";
-import { FaGithubAlt } from "react-icons/fa";
+import { FaGithubAlt, FaLinkedin } from "react-icons/fa";
 // import { AiTwotoneMail } from "react-icons/ai";
 import Contact from "@/components/Contact";
 
@@ -17,6 +17,12 @@ const contacts: IContacts[] = [
 		icon: <FaGithubAlt />,
 		href: "https://github.com/jungai",
 	},
+	{
+		msg: "linkedin",
+		link: true,
+		icon: <FaLinkedin />,
+		href: "https://www.linkedin.com/in/woraphol-wananiyakul-7a6793168/",
+	}
 	// {
 	// 	msg: "juworaphol125@gmail.com",
 	// 	link: false,
