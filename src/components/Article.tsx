@@ -7,7 +7,8 @@ const Article: FC<{ posts: IKeyDataFromMatter[] }> = ({ posts }) => (
 		<h1 className="text-2xl underline font-semibold text-light-head mb-2">
 			Posts
 		</h1>
-		<div className="overflow-auto max-h-80">
+		{/* TODO: fix with custom tailwind  */}
+		<div className="overflow-auto" style={{ maxHeight: "700px" }}>
 			<Posts posts={posts} />
 		</div>
 	</div>
