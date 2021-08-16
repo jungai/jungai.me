@@ -29,7 +29,6 @@ export const PostPage: FC<InitialProps> = ({ post }) => {
 				openGraph={{
 					url: `https://wwww.jungai.me/blogs/${post.data.name}`,
 					title: post.data.title,
-					// TODO: add description, twitter card, image not have yet
 					site_name: "jungai",
 				}}
 			/>

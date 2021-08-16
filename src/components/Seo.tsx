@@ -32,6 +32,7 @@ const Seo: FC<NextSeoProps> = ({
 			},
 		]}
 		openGraph={openGraph}
+		// TODO: add description, twitter card, image not have yet
 	/>
 );
 
