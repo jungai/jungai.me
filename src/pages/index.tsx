@@ -3,17 +3,18 @@ import Seo from "@/components/Seo";
 import LayoutDefault from "@/layouts/default";
 import { getAllPost, IKeyDataFromMatter } from "@/utils/api";
 import dynamic from "next/dynamic";
+import Loading from "@/components/Loading";
 
 interface IInitialProps {
 	posts: IKeyDataFromMatter[];
 }
 
 const Profile = dynamic(() => import("@/components/Profile"), {
-	loading: () => <p>loading...</p>,
+	loading: () => <Loading />,
 });
 
 const Article = dynamic(() => import("@/components/Article"), {
-	loading: () => <p>loading...</p>,
+	loading: () => <Loading />,
 });
 
 const IndexPage: FC<IInitialProps> = ({ posts }) => (

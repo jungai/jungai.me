@@ -9,13 +9,14 @@ import {
 	getPostsSlug,
 	RenderMdxWithRemoteResult,
 } from "@/utils/api";
+import Loading from "@/components/Loading";
 
 interface InitialProps {
 	post: RenderMdxWithRemoteResult;
 }
 
 const LayoutBlog = dynamic(() => import("@/layouts/blog"), {
-	loading: () => <p>loading...</p>,
+	loading: () => <Loading />,
 });
 
 export const PostPage: FC<InitialProps> = ({ post }) => {
