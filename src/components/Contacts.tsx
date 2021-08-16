@@ -1,7 +1,6 @@
 import { FC, ReactNode } from "react";
 import { FaGithubAlt, FaLinkedin } from "react-icons/fa";
 import { SiRiotgames, SiTwitch } from "react-icons/si";
-// import { AiTwotoneMail } from "react-icons/ai";
 import Contact from "@/components/Contact";
 
 export interface IContacts {
@@ -36,11 +35,6 @@ const contacts: IContacts[] = [
 		icon: <SiTwitch />,
 		href: "https://www.twitch.tv/jungai",
 	},
-	// {
-	// 	msg: "juworaphol125@gmail.com",
-	// 	link: false,
-	// 	icon: <AiTwotoneMail />,
-	// },
 ];
 
 const Contacts: FC = () => (
