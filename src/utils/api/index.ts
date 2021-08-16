@@ -34,9 +34,9 @@ export interface RenderMdxWithRemoteResult extends UseMatterResult {
 	mdx: MdxRemote.Source;
 }
 
-export function isFrontMatterCorrectKey<T extends UseMatterResult>(
+export function isFrontMatterCorrectKey(
 	result: UseMatterResult
-): result is RenderMdxWithRemoteResult | T {
+): result is RenderMdxWithRemoteResult {
 	return (
 		Reflect.has(result.data, "title") ||
 		Reflect.has(result.data, "date") ||
