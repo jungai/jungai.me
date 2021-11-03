@@ -27,7 +27,7 @@ const contacts: IContacts[] = [
 		msg: "valorant",
 		link: true,
 		icon: <SiRiotgames />,
-		href: "https://tracker.gg/valorant/profile/riot/i%20love%20korea%230004/overview?playlist=unrated",
+		href: "https://tracker.gg/valorant/profile/riot/strawberry%20moon%230004/overview?season=all",
 	},
 	{
 		msg: "twitch",
