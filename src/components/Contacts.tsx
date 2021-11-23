@@ -1,5 +1,5 @@
 import { FC, ReactNode } from "react";
-import { FaGithubAlt, FaLinkedin } from "react-icons/fa";
+import { FaGithubAlt, FaLinkedin, FaDev } from "react-icons/fa";
 import { SiRiotgames, SiTwitch } from "react-icons/si";
 import Contact from "@/components/Contact";
 
@@ -34,6 +34,12 @@ const contacts: IContacts[] = [
 		link: true,
 		icon: <SiTwitch />,
 		href: "https://www.twitch.tv/jungai",
+	},
+	{
+		msg: "dev.to",
+		link: true,
+		icon: <FaDev />,
+		href: "https://dev.to/jungai",
 	},
 ];
 
