@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 /* eslint-disable global-require */
-import { FC } from "react";
-import Contacts from "@/components/Contacts";
+import { FC } from 'react';
+import Contacts from '@/components/Contacts';
 
-const multipleSizes = require("../../public/jungai.jpeg?resize&sizes[]=300&sizes[]=600&sizes[]=1000");
+const multipleSizes = require('../../public/jungai.jpeg?resize&sizes[]=300&sizes[]=600&sizes[]=1000');
 
 const Profile: FC = () => (
 	<div className="flex flex-col justify-center items-center py-8 md:py-0">
@@ -16,7 +16,6 @@ const Profile: FC = () => (
 		<h1 className="text-2xl text-gray-900">안녕하세요 👋</h1>
 		<p className="mb-4 text-gray-700">สวัสดีครับผมชื่อจูเนียร์</p>
 		<p className="text-sm mb-4 text-gray-700">❤️ ชอบดูซีรีย์เกาหลี</p>
-		<p className="text-sm mb-4 text-gray-700">🎮 รักในการเล่นเกม</p>
 		<a href="https://webring.wonderful.software#jungai.me" title="วงแหวนเว็บ">
 			<img
 				className="mb-4 animate-spin"
