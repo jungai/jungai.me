@@ -5,7 +5,7 @@ import { getAllPost } from '../api';
 export async function generateRssFeed() {
 	const posts = await getAllPost();
 
-	const siteURL = 'http://localhost:3000';
+	const siteURL = 'https://jungai.me';
 	const date = new Date();
 	const author = {
 		name: 'jungai',
