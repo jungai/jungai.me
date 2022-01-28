@@ -39,12 +39,12 @@ export function isFrontMatterCorrectKey(result: UseMatterResult): result is Rend
 }
 
 // TODO: Fix Type
-export function getAllPost(): { [key: string]: string }[] {
+export function getAllPost(): { [key: string]: any }[] {
 	const posts = getPostsSlug();
 	const postsWithPath = posts.map((post) => join(getPostsDirPath(), `${post}`));
 	const fileContentList = postsWithPath.map((content) => getContent(content));
 	const matterData = fileContentList.map((content) => matter(content));
-	const result = matterData.map((content) => content.data);
+	const result = matterData.map((content) => ({ data: content.data, content: content.content }));
 
 	return result;
 }

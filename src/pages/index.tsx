@@ -4,6 +4,7 @@ import LayoutDefault from '@/layouts/default';
 import { getAllPost, IKeyDataFromMatter } from '@/utils/api';
 import dynamic from 'next/dynamic';
 import Loading from '@/components/Loading';
+import { generateRssFeed } from '@/utils/rss';
 
 interface IInitialProps {
 	posts: IKeyDataFromMatter[];
@@ -32,10 +33,13 @@ export async function getStaticProps(): Promise<{
 		posts: { [key: string]: string }[];
 	};
 }> {
+	await generateRssFeed();
 	const rawPosts = getAllPost();
-	const posts = rawPosts.sort(
-		(i, u) => new Date(u.date).getTime() - new Date(i.date).getTime(), // i with u mean iu ❤️
-	);
+	const posts = rawPosts
+		.sort(
+			(i, u) => new Date(u.data.date).getTime() - new Date(i.data.date).getTime(), // i with u mean iu ❤️
+		)
+		.map((post) => post.data);
 
 	return {
 		props: {
