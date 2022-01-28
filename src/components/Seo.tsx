@@ -1,13 +1,13 @@
-import { FC } from "react";
-import { NextSeo, NextSeoProps } from "next-seo";
+import { FC } from 'react';
+import { NextSeo, NextSeoProps } from 'next-seo';
 
 const Seo: FC<NextSeoProps> = ({
-	title = "Jungai",
+	title = 'Jungai',
 	openGraph = {
-		url: "https://www.jungai.me",
-		title: "Jungai",
-		description: "บล็อกของ จูเนียร์(junior)",
-		site_name: "jungai",
+		url: 'https://www.jungai.me',
+		title: 'Jungai',
+		description: 'บล็อกของ จูเนียร์(junior)',
+		site_name: 'jungai',
 	},
 }) => (
 	<NextSeo
@@ -16,19 +16,19 @@ const Seo: FC<NextSeoProps> = ({
 		canonical="https://www.jungai.me"
 		additionalMetaTags={[
 			{
-				property: "author",
-				content: "jungai",
+				property: 'author',
+				content: 'jungai',
 			},
 		]}
 		additionalLinkTags={[
 			{
-				rel: "icon",
-				type: "image/png",
-				href: "/j.png",
+				rel: 'icon',
+				type: 'image/png',
+				href: '/j.png',
 			},
 			{
-				rel: "stylesheet",
-				href: "https://unpkg.com/prismjs@0.0.1/themes/prism-okaidia.css",
+				rel: 'stylesheet',
+				href: 'https://unpkg.com/prismjs@0.0.1/themes/prism-okaidia.css',
 			},
 		]}
 		openGraph={openGraph}

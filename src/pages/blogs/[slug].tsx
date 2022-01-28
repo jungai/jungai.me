@@ -1,21 +1,17 @@
-import { FC } from "react";
-import { GetStaticPaths, GetStaticProps } from "next";
-import hydrate from "next-mdx-remote/hydrate";
-import Seo from "@/components/Seo";
-import dynamic from "next/dynamic";
-import { isString } from "@/utils/is_string";
-import {
-	getPostBySlug,
-	getPostsSlug,
-	RenderMdxWithRemoteResult,
-} from "@/utils/api";
-import Loading from "@/components/Loading";
+import { FC } from 'react';
+import { GetStaticPaths, GetStaticProps } from 'next';
+import hydrate from 'next-mdx-remote/hydrate';
+import Seo from '@/components/Seo';
+import dynamic from 'next/dynamic';
+import { isString } from '@/utils/is_string';
+import { getPostBySlug, getPostsSlug, RenderMdxWithRemoteResult } from '@/utils/api';
+import Loading from '@/components/Loading';
 
 interface InitialProps {
 	post: RenderMdxWithRemoteResult;
 }
 
-const LayoutBlog = dynamic(() => import("@/layouts/blog"), {
+const LayoutBlog = dynamic(() => import('@/layouts/blog'), {
 	loading: () => <Loading />,
 });
 
@@ -29,7 +25,7 @@ export const PostPage: FC<InitialProps> = ({ post }) => {
 				openGraph={{
 					url: `https://wwww.jungai.me/blogs/${post.data.name}`,
 					title: post.data.title,
-					site_name: "jungai",
+					site_name: 'jungai',
 				}}
 			/>
 			<LayoutBlog meta={post.data}>{content}</LayoutBlog>
@@ -58,7 +54,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 	const postSlug = getPostsSlug();
 
 	const paths = postSlug.map((post) => ({
-		params: { slug: post.replace(/\.mdx$/, "") },
+		params: { slug: post.replace(/\.mdx$/, '') },
 	}));
 
 	return {

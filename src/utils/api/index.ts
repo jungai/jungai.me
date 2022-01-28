@@ -1,13 +1,13 @@
 /* eslint-disable import/prefer-default-export */
-import { join } from "path";
-import fs from "fs";
-import matter from "gray-matter";
-import renderToString from "next-mdx-remote/render-to-string";
-import { MdxRemote } from "next-mdx-remote/types";
-import rehypePrism from "@mapbox/rehype-prism";
+import { join } from 'path';
+import fs from 'fs';
+import matter from 'gray-matter';
+import renderToString from 'next-mdx-remote/render-to-string';
+import { MdxRemote } from 'next-mdx-remote/types';
+import rehypePrism from '@mapbox/rehype-prism';
 
 export function getPostsDirPath(): string {
-	return join(process.cwd(), "_posts");
+	return join(process.cwd(), '_posts');
 }
 
 export function getPostsSlug(dir = getPostsDirPath()): string[] {
@@ -15,7 +15,7 @@ export function getPostsSlug(dir = getPostsDirPath()): string[] {
 }
 
 export function getContent(filePath: string): string {
-	return fs.readFileSync(filePath, "utf-8");
+	return fs.readFileSync(filePath, 'utf-8');
 }
 
 export interface IKeyDataFromMatter {
@@ -34,31 +34,23 @@ export interface RenderMdxWithRemoteResult extends UseMatterResult {
 	mdx: MdxRemote.Source;
 }
 
-export function isFrontMatterCorrectKey(
-	result: UseMatterResult
-): result is RenderMdxWithRemoteResult {
-	return (
-		Reflect.has(result.data, "title") ||
-		Reflect.has(result.data, "date") ||
-		Reflect.has(result.data, "name")
-	);
+export function isFrontMatterCorrectKey(result: UseMatterResult): result is RenderMdxWithRemoteResult {
+	return Reflect.has(result.data, 'title') || Reflect.has(result.data, 'date') || Reflect.has(result.data, 'name');
 }
 
 // TODO: Fix Type
-export function getAllPost(): { [key: string]: string }[] {
+export function getAllPost(): { [key: string]: any }[] {
 	const posts = getPostsSlug();
 	const postsWithPath = posts.map((post) => join(getPostsDirPath(), `${post}`));
 	const fileContentList = postsWithPath.map((content) => getContent(content));
 	const matterData = fileContentList.map((content) => matter(content));
-	const result = matterData.map((content) => content.data);
+	const result = matterData.map((content) => ({ data: content.data, content: content.content }));
 
 	return result;
 }
 
 // slug with out extension name
-export async function getPostBySlug(
-	slug: string
-): Promise<RenderMdxWithRemoteResult> {
+export async function getPostBySlug(slug: string): Promise<RenderMdxWithRemoteResult> {
 	const fullPath = join(getPostsDirPath(), `${slug}.mdx`);
 	const fileContent = getContent(fullPath);
 
@@ -76,5 +68,5 @@ export async function getPostBySlug(
 		};
 	}
 
-	throw new Error("type error: front-matter key is not valid");
+	throw new Error('type error: front-matter key is not valid');
 }
