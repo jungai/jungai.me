@@ -7,12 +7,7 @@ const multipleSizes = require('../../public/jungai.jpeg?resize&sizes[]=300&sizes
 
 const Profile: FC = () => (
 	<div className="flex flex-col justify-center items-center py-8 md:py-0">
-		<img
-			srcSet={multipleSizes.srcSet}
-			src={multipleSizes.src}
-			alt="jungai"
-			className="rounded-full w-60 h-60 mb-4"
-		/>
+		<img srcSet={multipleSizes.srcSet} src={multipleSizes.src} alt="jungai" className="rounded-full w-60 h-60 mb-4" />
 		<h1 className="text-2xl text-gray-900">안녕하세요 👋</h1>
 		<p className="mb-4 text-gray-700">สวัสดีครับผมชื่อจูเนียร์</p>
 		<p className="text-sm mb-4 text-gray-700">❤️ ชอบดูซีรีย์เกาหลี</p>

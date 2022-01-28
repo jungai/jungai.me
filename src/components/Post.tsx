@@ -1,19 +1,19 @@
-import { FC } from "react";
-import Link from "next/link";
-import { format } from "date-fns";
-import { th } from "date-fns/locale";
-import { MdUpdate } from "react-icons/md";
-import { IKeyDataFromMatter } from "@/utils/api";
+import { FC } from 'react';
+import Link from 'next/link';
+import { format } from 'date-fns';
+import { th } from 'date-fns/locale';
+import { MdUpdate } from 'react-icons/md';
+import { IKeyDataFromMatter } from '@/utils/api';
 
 interface IPost {
-	name: IKeyDataFromMatter["name"];
-	title: IKeyDataFromMatter["title"];
-	date: IKeyDataFromMatter["date"];
+	name: IKeyDataFromMatter['name'];
+	title: IKeyDataFromMatter['title'];
+	date: IKeyDataFromMatter['date'];
 }
 
 const Post: FC<IPost> = ({ title, date, name }) => {
 	// computed
-	const prettyDate = format(new Date(date), "dd MMM yyyy", { locale: th });
+	const prettyDate = format(new Date(date), 'dd MMM yyyy', { locale: th });
 
 	return (
 		<div className="flex flex-col border-b border-gray-300 mb-2 p-2">
