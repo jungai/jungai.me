@@ -1,5 +1,5 @@
 import { FC, ReactNode } from 'react';
-import { FaGithubAlt, FaLinkedin, FaDev } from 'react-icons/fa';
+import { FaGithubAlt, FaLinkedin, FaDev, FaRssSquare } from 'react-icons/fa';
 import { SiRiotgames, SiTwitch } from 'react-icons/si';
 import Contact from '@/components/Contact';
 
@@ -40,6 +40,12 @@ const contacts: IContacts[] = [
 		link: true,
 		icon: <FaDev />,
 		href: 'https://dev.to/jungai',
+	},
+	{
+		msg: 'rss',
+		link: true,
+		icon: <FaRssSquare />,
+		href: 'https://jungai.me/rss/feed.xml',
 	},
 ];
 
