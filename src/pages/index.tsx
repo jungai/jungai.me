@@ -34,7 +34,7 @@ export async function getStaticProps(): Promise<{
 	};
 }> {
 	await generateRssFeed();
-	const rawPosts = getAllPost();
+	const rawPosts = await getAllPost();
 	const posts = rawPosts
 		.sort(
 			(i, u) => new Date(u.data.date).getTime() - new Date(i.data.date).getTime(), // i with u mean iu ❤️

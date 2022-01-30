@@ -39,12 +39,19 @@ export function isFrontMatterCorrectKey(result: UseMatterResult): result is Rend
 }
 
 // TODO: Fix Type
-export function getAllPost(): { [key: string]: any }[] {
+export async function getAllPost(): Promise<{ [key: string]: any }[]> {
 	const posts = getPostsSlug();
 	const postsWithPath = posts.map((post) => join(getPostsDirPath(), `${post}`));
 	const fileContentList = postsWithPath.map((content) => getContent(content));
 	const matterData = fileContentList.map((content) => matter(content));
-	const result = matterData.map((content) => ({ data: content.data, content: content.content }));
+	const result = await Promise.all(
+		matterData.map(async (content) => ({
+			data: content.data,
+			content: await renderToString(content.content, {
+				mdxOptions: { rehypePlugins: [rehypePrism] },
+			}),
+		})),
+	);
 
 	return result;
 }
