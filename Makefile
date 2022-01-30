@@ -1,4 +1,4 @@
 .PHONY: deploy
 
 deploy:
-	cd ./scripts && ./deploy.mjs
+	npx zx ./scripts/deploy.mjs
