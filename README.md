@@ -1,4 +1,5 @@
-[jungai](https://www.jungai.me)
+Website -> [jungai](https://www.jungai.me)
+Rss Feed -> [feed](https://jungai.me/rss/feed.xml)
 
 ## Tools
 
