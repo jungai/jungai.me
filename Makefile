@@ -1,4 +1,7 @@
 .PHONY: deploy
 
-deploy:
-	npx zx ./scripts/deploy.mjs
+patch:
+	npx zx ./scripts/deploy.mjs 
+
+minor:
+	npx zx ./scripts/deploy.mjs -v minor
