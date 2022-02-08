@@ -21,7 +21,7 @@ const contacts: IContacts[] = [
 		msg: 'linkedin',
 		link: true,
 		icon: <FaLinkedin />,
-		href: 'https://www.linkedin.com/in/woraphol-wananiyakul-7a6793168/',
+		href: 'https://www.linkedin.com/in/woraphol-wananiyakul/',
 	},
 	{
 		msg: 'valorant',
