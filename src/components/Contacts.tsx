@@ -27,7 +27,7 @@ const contacts: IContacts[] = [
 		msg: 'valorant',
 		link: true,
 		icon: <SiRiotgames />,
-		href: 'https://tracker.gg/valorant/profile/riot/main%20winter%230004/overview',
+		href: 'https://tracker.gg/valorant/profile/riot/winter%23004/overview',
 	},
 	{
 		msg: 'twitch',
