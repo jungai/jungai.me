@@ -4,7 +4,7 @@ import { NextSeo, NextSeoProps } from 'next-seo';
 const Seo: FC<NextSeoProps> = ({
 	title = 'Jungai',
 	openGraph = {
-		url: 'https://www.jungai.me',
+		url: 'https://www.juver.xyz',
 		title: 'Jungai',
 		description: 'บล็อกของ จูเนียร์(junior)',
 		site_name: 'jungai',
@@ -13,7 +13,7 @@ const Seo: FC<NextSeoProps> = ({
 	<NextSeo
 		title={title}
 		description="บล็อกของ จูเนียร์(junior)"
-		canonical="https://www.jungai.me"
+		canonical="https://www.juver.xyz"
 		additionalMetaTags={[
 			{
 				property: 'author',

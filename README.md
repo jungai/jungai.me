@@ -1,4 +1,4 @@
-jungai-> [website](https://www.jungai.me),[rss feed](https://jungai.me/rss/feed.xml)
+jungai-> [website](https://www.juver.xyz),[rss feed](https://juver.xyz/rss/feed.xml)
 
 ## Tools
 
@@ -12,4 +12,4 @@ jungai-> [website](https://www.jungai.me),[rss feed](https://jungai.me/rss/feed.
 ## Branches
 
 - master(react)
-- [gatsby](https://github.com/jungai/jungai.me/tree/gatsby) (developing...)
+- [gatsby](https://github.com/jungai/juver.xyz/tree/gatsby) (developing...)

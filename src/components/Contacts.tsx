@@ -45,7 +45,7 @@ const contacts: IContacts[] = [
 		msg: 'rss',
 		link: true,
 		icon: <FaRssSquare />,
-		href: 'https://jungai.me/rss/feed.xml',
+		href: 'https://juver.xyz/rss/feed.xml',
 	},
 ];
 

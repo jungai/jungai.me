@@ -23,7 +23,7 @@ export const PostPage: FC<InitialProps> = ({ post }) => {
 			<Seo
 				title={post.data.title}
 				openGraph={{
-					url: `https://wwww.jungai.me/blogs/${post.data.name}`,
+					url: `https://wwww.juver.xyz/blogs/${post.data.name}`,
 					title: post.data.title,
 					site_name: 'jungai',
 				}}
