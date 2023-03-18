@@ -1,0 +1,16 @@
+{
+	"name": "website",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"better-commits": "^1.0.9"
+	},
+	"scripts": {
+		"commit": "better-commits",
+		"dev:docs": "pnpm run --filter=docs dev"
+	}
+}
