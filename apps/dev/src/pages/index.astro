@@ -1,1 +1,20 @@
-<h1 class="text-red-100 underline font-semibold">hello</h1>
+---
+import Layout from "@layouts/Layout.astro";
+import Post from "@components/Post.astro";
+---
+
+<Layout title="hello">
+	<h2 class="my-2 text-xl text-white md:text-2xl">Recent Posts</h2>
+	<Post
+		title="Hello World"
+		timestamp={new Intl.DateTimeFormat("en-US").format(new Date())}
+	/>
+	<Post
+		title="Hello World"
+		timestamp={new Intl.DateTimeFormat("en-US").format(new Date())}
+	/>
+	<Post
+		title="Hello World"
+		timestamp={new Intl.DateTimeFormat("en-US").format(new Date())}
+	/>
+</Layout>

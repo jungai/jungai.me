@@ -1,0 +1,28 @@
+---
+import { Icon } from "astro-icon";
+import { dateJuStyle } from "@utils";
+
+interface Props {
+	title: string;
+	timestamp: string;
+}
+
+const { title = "Title", timestamp = new Date().toString() } = Astro.props;
+---
+
+<div class="my-4 text-white">
+	<a href="/">
+		<h2 class="text-2xl text-warning hover:underline">{title}</h2>
+	</a>
+	<span class="flex items-center text-sm text-white/70">
+		<Icon class="h-5 w-5" name="carbon:calendar" />{
+			dateJuStyle(new Date(timestamp).toString())
+		}
+	</span>
+	<p class="tracking-wide">
+		Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo expedita
+		inventore laudantium velit amet, reiciendis ut deserunt in suscipit
+		recusandae, molestiae quasi assumenda deleniti ipsa, aliquid minus quas ex.
+		Fugiat.
+	</p>
+</div>
