@@ -1,5 +1,5 @@
 {
-	"name": "@apps/docs",
+	"name": "@apps/dev",
 	"type": "module",
 	"version": "0.0.1",
 	"scripts": {
@@ -11,5 +11,9 @@
 	},
 	"dependencies": {
 		"astro": "^2.0.18"
+	},
+	"devDependencies": {
+		"@astrojs/tailwind": "^3.1.1",
+		"tailwindcss": "^3.2.7"
 	}
 }

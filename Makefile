@@ -2,6 +2,6 @@
 default:
 	pnpm i -f
 
-.PHONY:	dev-doc
-dev-doc:
-	pnpm run --filter="docs" dev
+.PHONY:	dev-dev
+dev-dev:
+	pnpm run dev:dev 

@@ -11,6 +11,6 @@
 	},
 	"scripts": {
 		"commit": "better-commits",
-		"dev:docs": "pnpm run --filter=docs dev"
+		"dev:dev": "pnpm run --filter=dev dev"
 	}
 }
