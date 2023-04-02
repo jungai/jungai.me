@@ -9,14 +9,16 @@ const allBlogPosts = await getCollection("posts");
 <Layout title="Jungai">
 	<h2 class="my-2 text-xl text-white md:text-2xl">Recent Posts</h2>
 	{
-		allBlogPosts.map((post) => (
-			<Post
-				title={post.data.title}
-				desc={post.data.desc}
-				timestamp={post.data.timestamp}
-				collection={post.collection}
-				slug={post.slug}
-			/>
-		))
+		allBlogPosts
+			.sort((a, b) => b.data.timestamp - a.data.timestamp)
+			.map((post) => (
+				<Post
+					title={post.data.title}
+					desc={post.data.desc}
+					timestamp={post.data.timestamp}
+					collection={post.collection}
+					slug={post.slug}
+				/>
+			))
 	}
 </Layout>
