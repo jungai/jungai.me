@@ -14,6 +14,8 @@ const allBlogPosts = await getCollection("posts");
 				title={post.data.title}
 				desc={post.data.desc}
 				timestamp={post.data.timestamp}
+				collection={post.collection}
+				slug={post.slug}
 			/>
 		))
 	}

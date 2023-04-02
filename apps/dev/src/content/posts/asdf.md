@@ -1,6 +1,6 @@
 ---
-title: "Asdf"
-timestamp: 1679218714595
+title: "พามารู้จัก asdf กัน"
+timestamp: 1621153837917
 desc: "ตัวจัดการ version ของ runtime, cli, tools ตัวเดียวครบจบ !"
 tags:
   - tool

@@ -6,17 +6,21 @@ interface Props {
 	title: string;
 	timestamp: number;
 	desc: string;
+	slug: string;
+	collection: string;
 }
 
 const {
 	title = "Title",
 	timestamp = new Date().toString(),
 	desc,
+	slug,
+	collection,
 } = Astro.props;
 ---
 
 <div class="my-4 text-white">
-	<a href="/">
+	<a href={`/${collection}/${slug}`}>
 		<h2 class="text-2xl text-warning hover:underline">{title}</h2>
 	</a>
 	<span class="flex items-center text-sm text-white/70">
