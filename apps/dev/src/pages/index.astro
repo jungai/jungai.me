@@ -1,20 +1,20 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import Post from "@components/Post.astro";
+import { getCollection } from "astro:content";
+
+const allBlogPosts = await getCollection("posts");
 ---
 
-<Layout title="hello">
+<Layout title="Jungai">
 	<h2 class="my-2 text-xl text-white md:text-2xl">Recent Posts</h2>
-	<Post
-		title="Hello World"
-		timestamp={new Intl.DateTimeFormat("en-US").format(new Date())}
-	/>
-	<Post
-		title="Hello World"
-		timestamp={new Intl.DateTimeFormat("en-US").format(new Date())}
-	/>
-	<Post
-		title="Hello World"
-		timestamp={new Intl.DateTimeFormat("en-US").format(new Date())}
-	/>
+	{
+		allBlogPosts.map((post) => (
+			<Post
+				title={post.data.title}
+				desc={post.data.desc}
+				timestamp={post.data.timestamp}
+			/>
+		))
+	}
 </Layout>

@@ -1,0 +1,29 @@
+---
+import Layout from "@layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+	const postEntries = await getCollection("posts");
+
+	return postEntries.map((entry) => {
+		return {
+			params: { slug: entry.slug },
+			props: { entry },
+		};
+	});
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+// TODO: ovverride css
+---
+
+<Layout title="Jungai">
+	<article
+		id="article"
+		role="article"
+		class="prose mx-auto mt-8 max-w-3xl prose-headings:text-white prose-p:text-white"
+	>
+		<Content />
+	</article>
+</Layout>
