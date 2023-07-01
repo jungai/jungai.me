@@ -49,6 +49,10 @@ jobs:
         run: |
           pnpm slides:build
 
+      - name: Debug
+        run: |
+          pnpm ls -a
+
       - uses: amondnet/vercel-action@v20 #deploy
         with:
           vercel-token: ${{ secrets.JUNGAI_DEV_VERCEL_TOKEN }}
