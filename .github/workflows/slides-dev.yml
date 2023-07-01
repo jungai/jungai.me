@@ -12,7 +12,7 @@ on:
 
 jobs:
   deploy:
-    environment: jungai.slides
+    environment: jungai.dev
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
