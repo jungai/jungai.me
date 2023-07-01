@@ -55,4 +55,4 @@ jobs:
           vercel-args: "--prod" #Optional
           vercel-org-id: ${{ secrets.ORG_ID}} #Required
           vercel-project-id: ${{ secrets.PROJ_SLIDES_ID}} #Required
-          working-directory: apps/slides
+          working-directory: ./apps/slides
