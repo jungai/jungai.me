@@ -54,5 +54,5 @@ jobs:
           vercel-token: ${{ secrets.JUNGAI_DEV_VERCEL_TOKEN }}
           vercel-args: "--prod" #Optional
           vercel-org-id: ${{ secrets.ORG_ID}} #Required
-          vercel-project-id: ${{ secrets.PROJ_ID}} #Required
+          vercel-project-id: ${{ secrets.PROJ_SLIDES_ID}} #Required
           working-directory: ./apps/slides/build
