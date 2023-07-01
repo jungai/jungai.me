@@ -13,6 +13,7 @@
 		"commit": "better-commits",
 		"dev:dev": "pnpm run --filter=dev dev",
 		"dev:build": "pnpm run --filter=dev build",
-		"dev:slides": "pnpm run --filter=slides dev"
+		"dev:slides": "pnpm run --filter=slides dev",
+		"slides:build": "pnpm run --filter=slides build"
 	}
 }
